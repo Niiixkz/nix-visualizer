@@ -1,0 +1,21 @@
+[package]
+name = "nix-visualizer"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "nix-visualizer"
+path = "src/main.rs"
+
+[dependencies]
+pipewire = "0.8"
+rustfft = "6"
+clap = { version = "4", features = ["derive"] }
+signal-hook = "0.3"
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = "symbols"
